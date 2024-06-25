@@ -303,8 +303,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Bitcoin
-</translation>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -520,8 +519,7 @@
     </message>
     <message>
         <source>Bitcoin</source>
-        <translation>Bitcoin
-</translation>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Error</source>

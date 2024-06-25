@@ -17,6 +17,7 @@
 #include <compat/sanity.h>
 #include <consensus/validation.h>
 #include <fs.h>
+#include <hashdb.h>
 #include <httpserver.h>
 #include <httprpc.h>
 #include <key.h>
@@ -247,6 +248,7 @@ void Shutdown()
         pcoinscatcher.reset();
         pcoinsdbview.reset();
         pblocktree.reset();
+        phashdb.reset();
     }
 #ifdef ENABLE_WALLET
     StopWallets();
@@ -525,10 +527,14 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/bitcoin/bitcoin>";
-    const std::string URL_WEBSITE = "<https://bitcoincore.org>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/bitcoin-org/bitcoin>";
+    const std::string URL_WEBSITE = "<https://bitcoin.web4u.jp>";
 
-    return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +
+    std::string blcCopyright = strprintf(_("Copyright (C) %i"), COPYRIGHT_YEAR) + " " + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
+    std::string btcCopyright = strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " The Bitcoin Core developers";
+
+    return blcCopyright + "\n" +
+           btcCopyright + "\n" +
            "\n" +
            strprintf(_("Please contribute if you find %s useful. "
                        "Visit %s for further information about the software."),
@@ -1432,6 +1438,10 @@ bool AppInitMain()
                 // fails if it's still open from the previous loop. Close it first:
                 pblocktree.reset();
                 pblocktree.reset(new CBlockTreeDB(nBlockTreeDBCache, false, fReset));
+
+                // TODO: add cache size option for CHashDB
+                phashdb.reset();
+                phashdb.reset(new CHashDB(nBlockTreeDBCache, false, fReset));
 
                 if (fReset) {
                     pblocktree->WriteReindexing(true);

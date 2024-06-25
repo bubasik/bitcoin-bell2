@@ -12,7 +12,7 @@
  * for both bitcoind and bitcoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Satoshi");
+const std::string CLIENT_NAME("Bitcoin");
 
 /**
  * Client version number
@@ -44,8 +44,8 @@ const std::string CLIENT_NAME("Satoshi");
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "2848aa808fde4"
-#define GIT_COMMIT_DATE "Fri, 20 Jul 2018 14:54:20 +0200"
+#define GIT_COMMIT_ID "b552044"
+#define GIT_COMMIT_DATE "Sun, 21 Oct 2018 05:32:43 +0000"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \
