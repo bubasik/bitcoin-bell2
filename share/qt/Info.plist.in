@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>jp.web4u.bitcoin.Bitcoin-Qt</string>
+  <string>bitcoin.Bitcoin-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>

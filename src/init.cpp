@@ -527,8 +527,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/bitcoin-org/bitcoin>";
-    const std::string URL_WEBSITE = "<https://bitcoin.web4u.jp>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/bitcoincoin/bitcoin>";
+    const std::string URL_WEBSITE = "<https://bitcoincoin.info>";
 
     std::string blcCopyright = strprintf(_("Copyright (C) %i"), COPYRIGHT_YEAR) + " " + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
     std::string btcCopyright = strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " The Bitcoin Core developers";
